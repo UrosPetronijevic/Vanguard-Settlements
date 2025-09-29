@@ -1,10 +1,13 @@
-import Homepage from "../pages/Homepage";
+import Initializer from "../components/auth/Initializer";
+import LandingPage from "../pages/LandingPage";
 
 function App() {
   return (
-    <div className="text-cyan-200">
-      <Homepage />
-    </div>
+    <Initializer>
+      <div>
+        <LandingPage />
+      </div>
+    </Initializer>
   );
 }
 
