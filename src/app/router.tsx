@@ -2,17 +2,19 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import SignUp from "../pages/auth/SignUp";
 import SignIn from "../pages/auth/SignIn";
+import Homepage from "../pages/Homepage";
+import PrivateRout from "../routes/PrivateRout";
 
 export const router = createBrowserRouter([
   { path: "/", element: <App /> },
   { path: "/signup", element: <SignUp /> },
   { path: "/signin", element: <SignIn /> },
-  //   {
-  //     path: "/dashboard",
-  //     element: (
-  //       <PrivateRout>
-  //         <Dashboard />
-  //       </PrivateRout>
-  //     ),
-  //   },
+  {
+    path: "/homepage",
+    element: (
+      <PrivateRout>
+        <Homepage />
+      </PrivateRout>
+    ),
+  },
 ]);

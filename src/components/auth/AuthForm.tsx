@@ -1,5 +1,4 @@
 import type { FormType } from "../../types/formType";
-
 import Input from "../../ui/input";
 import AuthHeader from "./AuthHeader";
 
@@ -30,7 +29,7 @@ export default function AuthForm({
         <Input setFunc={setPassword} inputType="password" />
 
         <button disabled={loading}>
-          {formType === "signup" ? "Sign up" : "Sign in"}
+          {formType === "signup" ? "Sign up" : "Log in"}
         </button>
 
         {error && <p className="text-red-500 text-center pt-4">{error}</p>}

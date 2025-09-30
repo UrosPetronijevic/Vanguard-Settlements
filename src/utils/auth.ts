@@ -1,8 +1,10 @@
 import { supabase } from "../services/supabaseClient";
-import useSessionStore from "../stores/sessionStore"; // Adjust path as needed
+import useSessionStore from "../stores/sessionStore";
 
 export async function updateSessionFromSupabase(): Promise<boolean> {
-  const setSession = useSessionStore.getState().setSession;
+  const { setSession, setIsLoading } = useSessionStore.getState();
+
+  setIsLoading(true);
 
   try {
     const {
@@ -23,5 +25,7 @@ export async function updateSessionFromSupabase(): Promise<boolean> {
     console.error("An unexpected error occurred while updating session:", err);
     setSession(null);
     return false;
+  } finally {
+    setIsLoading(false);
   }
 }
