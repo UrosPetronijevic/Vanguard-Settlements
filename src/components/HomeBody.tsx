@@ -30,5 +30,5 @@ export default function HomeBody() {
       contentToRender = <OverviewPage />;
   }
 
-  return <div className="bg-cyan-200 h-full">{contentToRender}</div>;
+  return <div className="h-full">{contentToRender}</div>;
 }
