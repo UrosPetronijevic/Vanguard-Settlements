@@ -1,8 +1,8 @@
-import AboutPage from "../pages/AboutPage";
-import LorePage from "../pages/LorePage";
-import OverviewPage from "../pages/OverviewPage";
-import PlayPage from "../pages/PlayPage";
-import RulesPage from "../pages/RulesPage";
+import AboutPage from "../pages/info/AboutPage";
+import LorePage from "../pages/info/LorePage";
+import OverviewPage from "../pages/info/OverviewPage";
+import PlayPage from "../pages/game/PlayPage";
+import RulesPage from "../pages/info/RulesPage";
 import { useActiveHomePageStore } from "../stores/activeHomePageStore";
 
 export default function HomeBody() {

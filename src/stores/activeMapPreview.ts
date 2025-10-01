@@ -8,7 +8,7 @@ interface ActiveMapPreviewState {
 
 export const useActiveMapPreviewStore = create<ActiveMapPreviewState>(
   (set) => ({
-    activeMap: "",
+    activeMap: "10x10",
     setActiveMap: (map: string) => set({ activeMap: map }),
   })
 );

@@ -1,12 +1,12 @@
-import BuildingsSection from "../components/BuildingsSection";
-import GameHeader from "../components/headers/GameHeader";
-import MainContent from "../components/MainContent";
-import InfoSidebar from "../components/sidebars/InfoSidebar";
-import NavigationSidebar from "../components/sidebars/NavigationSidebar";
+import BuildingsSection from "../../components/BuildingsSection";
+import GameHeader from "../../components/headers/GameHeader";
+import MainContent from "../../components/MainContent";
+import InfoSidebar from "../../components/sidebars/InfoSidebar";
+import NavigationSidebar from "../../components/sidebars/NavigationSidebar";
 
-import JungleBackground from "../assets/images/backgrounds/jungle/Background.png";
+import JungleBackground from "../../assets/images/backgrounds/jungle/Background.png";
 
-export default function VillagePage() {
+export default function TownPage() {
   return (
     <div className="flex flex-col max-w-screen h-screen">
       <GameHeader />
