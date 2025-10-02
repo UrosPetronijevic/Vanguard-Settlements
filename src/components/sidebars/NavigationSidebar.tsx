@@ -1,17 +1,17 @@
 import JungleWoodSidebar from "../../assets/images/backgrounds/jungle/Wood-background.png";
 import { useGameNavStore } from "../../stores/gameplay/gameNavStore";
 
+const navItems = [
+  { name: "Towns", id: "towns" },
+  { name: "Map", id: "map" },
+  { name: "Trade", id: "trade" },
+  { name: "Buildings", id: "buildings" },
+  { name: "Troops", id: "troops" },
+  { name: "Reports", id: "reports" },
+];
+
 export default function NavigationSidebar() {
   const { activeNavPage, setNavPage } = useGameNavStore();
-
-  const navItems = [
-    { name: "Towns", id: "towns" },
-    { name: "Map", id: "map" },
-    { name: "Trade", id: "trade" },
-    { name: "Buildings", id: "buildings" },
-    { name: "Troops", id: "troops" },
-    { name: "Reports", id: "reports" },
-  ];
 
   const calculateBorderRadius = () => {
     if (typeof window !== "undefined") {
