@@ -1,7 +1,16 @@
+import { useNavigate } from "react-router-dom";
+import { useActiveGameSessionStore } from "../../stores/gameplay/activeGameSessionStore";
+
 export default function GameHeader() {
+  const { setGameSession } = useActiveGameSessionStore();
+
+  const navigate = useNavigate();
+
   return (
-    <div className="p-2 flex items-center justify-center">
-      <div className="grid grid-cols-8 gap-4 p-2 place-items-center">
+    <div className="grid grid-cols-[10%_80%_10%] place-items-center p-3">
+      <span>Player ID</span>
+
+      <div className="grid grid-cols-8 place-items-center">
         <p>
           <span>logo</span> stone
         </p>
@@ -34,6 +43,16 @@ export default function GameHeader() {
           <span>logo</span> luxury
         </p>
       </div>
+
+      <button
+        className=""
+        onClick={() => {
+          setGameSession(false);
+          navigate("/homepage");
+        }}
+      >
+        Quit game
+      </button>
     </div>
   );
 }

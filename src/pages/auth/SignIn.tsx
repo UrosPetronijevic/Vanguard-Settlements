@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthForm from "../../components/auth/AuthForm";
-import signInUser from "../../utils/signInUser";
+import signInUser from "../../utils/auth/signInUser";
 import useSessionStore from "../../stores/sessionStore";
 
 export default function SignIn() {

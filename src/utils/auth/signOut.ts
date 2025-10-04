@@ -1,4 +1,4 @@
-import { supabase } from "../services/supabaseClient";
+import { supabase } from "../../services/supabaseClient";
 import { updateSessionFromSupabase } from "./auth";
 
 export default async function signOut() {

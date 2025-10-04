@@ -5,6 +5,7 @@ import SignIn from "../pages/auth/SignIn";
 import Homepage from "../pages/Homepage";
 import PrivateRout from "../routes/PrivateRout";
 import TownPage from "../pages/game/TownPage";
+import GameplayRout from "../routes/GameplayRout";
 
 export const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -13,7 +14,7 @@ export const router = createBrowserRouter([
   {
     path: "/homepage",
     element: (
-      <PrivateRout type="auth">
+      <PrivateRout>
         <Homepage />
       </PrivateRout>
     ),
@@ -22,9 +23,9 @@ export const router = createBrowserRouter([
   {
     path: "/townpage",
     element: (
-      <PrivateRout>
+      <GameplayRout>
         <TownPage />
-      </PrivateRout>
+      </GameplayRout>
     ),
   },
 ]);

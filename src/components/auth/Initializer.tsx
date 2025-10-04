@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { supabase } from "../../services/supabaseClient";
-import { updateSessionFromSupabase } from "../../utils/auth";
+import { updateSessionFromSupabase } from "../../utils/auth/auth";
 
 interface InitializerProps {
   children: React.ReactNode;

@@ -1,5 +1,5 @@
-import { supabase } from "../services/supabaseClient";
-import useSessionStore from "../stores/sessionStore";
+import { supabase } from "../../services/supabaseClient";
+import useSessionStore from "../../stores/sessionStore";
 
 export async function updateSessionFromSupabase(): Promise<boolean> {
   const { setSession, setIsLoading } = useSessionStore.getState();

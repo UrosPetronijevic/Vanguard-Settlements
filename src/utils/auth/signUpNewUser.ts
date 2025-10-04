@@ -1,4 +1,4 @@
-import { supabase } from "../services/supabaseClient.ts";
+import { supabase } from "../../services/supabaseClient.ts";
 import { updateSessionFromSupabase } from "./auth.ts";
 
 export default async function signUpNewUser(email: any, password: any) {
