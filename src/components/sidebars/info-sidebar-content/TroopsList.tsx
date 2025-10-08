@@ -1,3 +1,10 @@
+import ArmyDisplay from "./troops-list-content/ArmyDisplay";
+
 export default function TroopsList() {
-  return <div>TroopsList</div>;
+  return (
+    <div>
+      <ArmyDisplay />
+      <TroopsList />
+    </div>
+  );
 }

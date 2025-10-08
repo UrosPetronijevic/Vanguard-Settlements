@@ -1,10 +1,10 @@
-import BuildingsSection from "../../components/BuildingsSection";
 import GameHeader from "../../components/headers/GameHeader";
 import MainContent from "../../components/MainContent";
 import InfoSidebar from "../../components/sidebars/InfoSidebar";
 import NavigationSidebar from "../../components/sidebars/NavigationSidebar";
 
 import JungleBackground from "../../assets/images/backgrounds/jungle/Background.png";
+import DynamicContent from "../../components/dynamic-content/DynamicContent";
 
 export default function TownPage() {
   return (
@@ -26,7 +26,7 @@ export default function TownPage() {
           <InfoSidebar />
         </div>
 
-        <BuildingsSection />
+        <DynamicContent />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
-import { usePlayerTownsStore } from "../../../../stores/gameplay/playerTownsStore";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
 
-export default function TownTypeOverview() {
+export default function TownTypeLore() {
   const { towns, activeTownId } = usePlayerTownsStore();
   const activeTown = towns.find((town) => town.id === activeTownId);
 
