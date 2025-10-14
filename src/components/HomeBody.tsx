@@ -1,5 +1,5 @@
 import AboutPage from "../pages/info/AboutPage";
-import LorePage from "../pages/info/LorePage";
+import LorePage from "../pages/info/lore/LorePage";
 import OverviewPage from "../pages/info/OverviewPage";
 import PlayPage from "../pages/game/PlayPage";
 import RulesPage from "../pages/info/RulesPage";

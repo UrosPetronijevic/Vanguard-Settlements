@@ -1,4 +1,4 @@
-import GameNav from "../navigation/gameNav";
+import GameNav from "../navigation/GameNav";
 
 export default function NavigationSidebar() {
   return (
