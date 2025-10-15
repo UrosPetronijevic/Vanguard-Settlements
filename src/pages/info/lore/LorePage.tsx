@@ -11,12 +11,12 @@ export default function LorePage() {
       className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 
                  gap-8 p-8 bg-[#FFFCB8]/20 min-h-full"
     >
-      <LoreCard>
+      <LoreCard type={"realms"}>
         <img src={Realms} alt="Realms Map Logo" className="w-2/3 h-auto" />
         <span className="mt-4 text-2xl font-bold text-gray-800">Realms</span>
       </LoreCard>
 
-      <LoreCard>
+      <LoreCard type="settlements">
         <img
           src={Settlements}
           alt="Settlements Logo"
@@ -27,16 +27,16 @@ export default function LorePage() {
         </span>
       </LoreCard>
 
-      <LoreCard>
+      <LoreCard type="races">
         <img src={Races} alt="Sentient Races Logo" className="w-full h-auto" />
         <span className="mt-4 text-2xl font-bold text-gray-800">
           Sentient Races
         </span>
       </LoreCard>
 
-      <LoreCard>
+      <LoreCard type="fauna">
         <img src={Fauna} alt="Flora Map Logo" className="w-2/3 h-auto" />
-        <span className="mt-4 text-2xl font-bold text-gray-800">Flora</span>
+        <span className="mt-4 text-2xl font-bold text-gray-800">Fauna</span>
       </LoreCard>
     </div>
   );

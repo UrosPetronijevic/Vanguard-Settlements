@@ -3,7 +3,12 @@ import LorePage from "../pages/info/lore/LorePage";
 import OverviewPage from "../pages/info/OverviewPage";
 import PlayPage from "../pages/game/PlayPage";
 import RulesPage from "../pages/info/RulesPage";
+
 import { useActiveHomePageStore } from "../stores/activeHomePageStore";
+import RealmsPage from "../pages/info/lore/RealmsPage";
+import SettlementsPage from "../pages/info/lore/SettlementsPage";
+import RacesPage from "../pages/info/lore/RacesPage";
+import FaunaPage from "../pages/info/lore/FaunaPage";
 
 export default function HomeBody() {
   const { activePage } = useActiveHomePageStore();
@@ -25,6 +30,18 @@ export default function HomeBody() {
       break;
     case "about":
       contentToRender = <AboutPage />;
+      break;
+    case "realms":
+      contentToRender = <RealmsPage />;
+      break;
+    case "settlements":
+      contentToRender = <SettlementsPage />;
+      break;
+    case "races":
+      contentToRender = <RacesPage />;
+      break;
+    case "fauna":
+      contentToRender = <FaunaPage />;
       break;
     default:
       contentToRender = <OverviewPage />;
