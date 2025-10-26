@@ -5,8 +5,13 @@ import NavigationSidebar from "../../components/sidebars/NavigationSidebar";
 
 import JungleBackground from "../../assets/images/backgrounds/jungle/Background.png";
 import DynamicContent from "../../components/dynamic-content/DynamicContent";
+import { useMapFieldsStore } from "../../stores/gameplay/mapFieldsStore";
 
 export default function TownPage() {
+  const { mapFields } = useMapFieldsStore();
+
+  console.log(mapFields);
+
   return (
     <div className="flex flex-col max-w-screen h-screen">
       <GameHeader />

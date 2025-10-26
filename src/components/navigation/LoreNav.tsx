@@ -33,20 +33,24 @@ export default function LoreNav({ currentPage }: LoreNavProps) {
   }
 
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between p-4">
       <button
+        className="py-2 px-4 bg-red-300 rounded-lg"
         onClick={() => {
           setActivePage(button1Content);
         }}
       >
+        <span>{"<- "}</span>
         {button1Content}
       </button>
       <button
+        className="py-2 px-4 bg-red-300 rounded-lg"
         onClick={() => {
           setActivePage(button2Content);
         }}
       >
         {button2Content}
+        <span>{" ->"}</span>
       </button>
     </div>
   );

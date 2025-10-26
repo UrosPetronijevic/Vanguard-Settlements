@@ -1,0 +1,58 @@
+.paper-bg {
+  /* background: #daceb6;
+  background: radial-gradient(
+    circle,
+    rgba(218, 206, 182, 1) 12%,
+    rgba(204, 188, 154, 1) 42%,
+    rgba(192, 169, 126, 1) 70%,
+    rgba(171, 144, 99, 1) 92%,
+    rgba(131, 102, 59, 1) 100%
+  ); */
+
+  background: #daceb6;
+  background: radial-gradient(
+    circle,
+    rgba(218, 206, 182, 1) 0%,
+    rgba(204, 188, 154, 1) 42%,
+    rgba(192, 169, 126, 1) 70%,
+    rgba(171, 144, 99, 1) 100%
+  );
+
+  /* background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%); */
+  /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
+}
+
+.paper-side-pattern-container {
+  display: flex; /* Keep flex-col from JSX, but ensure this div is properly measured */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*
+    The border-t and border-b are on this container itself in your original JSX.
+    So, consider their 2px height (if border-[#7f6844] resolves to 1px per side)
+  */
+  border-top: 1px solid #7f6844; /* Match JSX border styles */
+  border-bottom: 1px solid #7f6844;
+
+  padding: 5px 0; /* Add some minimal padding for spacing, adjust as needed */
+
+  /*
+    Now, let's estimate the min-height:
+    - 2 zig-zag lines: (3px + 10px / (2 * tan(45deg))) * 2 = (3px + 5px) * 2 = 16px
+      (tan(45deg) = 1, so tan(90deg/2) = 1)
+      Plus 2px margin top/bottom for each = 4px total margin
+      So, approx 16px + 4px = 20px for zig-zags and their margins.
+    - 5 infinity patterns: 5 * 10px (height: var(--s)) = 50px
+      Plus some vertical gap/margin for each (let's estimate 2px per pattern * 4 gaps = 8px)
+      So, approx 50px + 8px = 58px for infinities and their margins.
+    - Container padding: 2 * 5px = 10px
+    - Container borders: 2 * 1px = 2px
+
+    Total estimated height: 20 + 58 + 10 + 2 = 90px.
+    This is an estimate. **Measure in dev tools for precision!**
+  */
+  min-height: 90px; /* VERY IMPORTANT: Adjust this after inspecting in dev tools */
+  height: auto; /* Allow content to dictate height, but min-height ensures a floor */
+  width: 100%; /* Ensure it takes full width of its parent */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}

@@ -1,0 +1,19 @@
+/* HTML: <div class="infinity"></div> */
+.infinity {
+  --s: 10px; /* control the size */
+  --b: 2px; /* the border thickness */
+  display: inline-flex;
+  gap: calc((sqrt(2) - 1) * var(--s) - sqrt(2) * var(--b));
+}
+.infinity:before,
+.infinity:after {
+  content: "";
+  box-shadow: 0 0 0 var(--b) inset #93794f; /* the color */
+  height: var(--s);
+  aspect-ratio: 1;
+  border-radius: 50% 50% 0 50%;
+  rotate: -45deg;
+}
+.infinity:after {
+  scale: -1;
+}

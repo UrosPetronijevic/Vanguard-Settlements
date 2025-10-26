@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@import "./assets/css/infinity.css";
+@import "./assets/css/wave.css";
+@import "./assets/css/paperBg.css";
+
 /* old paper colors */
 /* #f8e5ba
 #E0D3AF
