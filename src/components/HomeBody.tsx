@@ -9,6 +9,7 @@ import RealmsPage from "../pages/info/lore/RealmsPage";
 import SettlementsPage from "../pages/info/lore/SettlementsPage";
 import RacesPage from "../pages/info/lore/RacesPage";
 import FaunaPage from "../pages/info/lore/FaunaPage";
+import CreaturesPage from "../pages/info/lore/CreaturesPage";
 
 export default function HomeBody() {
   const { activePage } = useActiveHomePageStore();
@@ -42,6 +43,9 @@ export default function HomeBody() {
       break;
     case "fauna":
       contentToRender = <FaunaPage />;
+      break;
+    case "creature":
+      contentToRender = <CreaturesPage />;
       break;
     default:
       contentToRender = <OverviewPage />;

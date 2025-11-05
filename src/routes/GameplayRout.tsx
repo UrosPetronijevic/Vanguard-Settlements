@@ -11,7 +11,7 @@ interface GameplayRouteProps {
 
 export default function GameplayRout({ children }: GameplayRouteProps) {
   const { session, isLoading } = useSessionStore();
-  const { gameSession } = useActiveGameSessionStore();
+  // const { gameSession } = useActiveGameSessionStore();
 
   if (isLoading) {
     return <GameLoadingPage />;
@@ -21,5 +21,5 @@ export default function GameplayRout({ children }: GameplayRouteProps) {
     return <Navigate to={"/signup"} />;
   }
 
-  return <>{gameSession ? <>{children}</> : <Navigate to={"/homepage"} />}</>;
+  return <>{session ? <>{children}</> : <Navigate to={"/homepage"} />}</>;
 }

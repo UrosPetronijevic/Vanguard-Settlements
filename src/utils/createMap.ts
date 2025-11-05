@@ -1,3 +1,6 @@
+import type { Field } from "../types/fieldTypes";
+import type { Town } from "../types/townTypes";
+
 export default function createMap() {
   const fields = [];
 
@@ -6,8 +9,9 @@ export default function createMap() {
   let elysiumCount = 0;
 
   const generateNewField = (j: number, i: number, fieldType: string) => {
-    const newField = {
+    const newField: Field | Town = {
       id: `x:${j} y:${i}`,
+      coordinates: { x: j, y: i },
       type: fieldType,
       owner: "Nature",
     };
@@ -83,6 +87,142 @@ export default function createMap() {
 
     fields.push(row);
   }
+
+  let x = Math.floor(Math.random() * 8) + 1;
+  let y = Math.floor(Math.random() * 8) + 1;
+
+  console.log(fields[y - 1][x - 1]);
+
+  const capital = {
+    id: fields[y - 1][x - 1].id,
+    name: "Capital City",
+    type: "Hills Town",
+    coordinates: {
+      x: fields[y - 1][x - 1].coordinates.x,
+      y: fields[y - 1][x - 1].coordinates.y,
+    },
+    status: "megalopolis",
+    isCapital: true,
+    owner: "Player123",
+
+    buildings: {
+      production: [
+        {
+          buildingName: "name",
+          level: 0,
+          productionBonus: 0,
+        },
+
+        {
+          buildingName: "name",
+          level: 0,
+          productionBonus: 0,
+        },
+
+        {
+          buildingName: "name",
+          level: 0,
+          productionBonus: 0,
+        },
+        {
+          buildingName: "name",
+          level: 0,
+          productionBonus: 0,
+        },
+
+        {
+          buildingName: "name",
+          level: 0,
+          productionBonus: 0,
+        },
+
+        {
+          buildingName: "name",
+          level: 0,
+          productionBonus: 0,
+        },
+
+        {
+          buildingName: "name",
+          level: 0,
+          productionBonus: 0,
+        },
+      ],
+
+      baracks: {
+        buildingName: "name",
+        level: 0,
+        productionBonus: 0,
+      },
+
+      tradeStation: {
+        buildingName: "name",
+        level: 0,
+        traders: 0,
+
+        tradeRouts: {
+          route1: {
+            senderId: null,
+            receiverId: null,
+          },
+
+          route2: {
+            senderId: null,
+            receiverId: null,
+          },
+
+          route3: {
+            senderId: null,
+            receiverId: null,
+          },
+        },
+      },
+    },
+
+    resources: {
+      wood: {
+        amount: 1,
+        perHour: 0,
+      },
+
+      food: {
+        amount: 1,
+        perHour: 0,
+      },
+
+      water: {
+        amount: 1,
+        perHour: 0,
+      },
+
+      stone: {
+        amount: 1,
+        perHour: 0,
+      },
+
+      metal: {
+        amount: 1,
+        perHour: 0,
+      },
+
+      clay: {
+        amount: 1,
+        perHour: 0,
+      },
+
+      sand: {
+        amount: 1,
+        perHour: 0,
+      },
+    },
+  };
+
+  fields[y - 1][x - 1] = capital;
+
+  const towns: any = [];
+  towns.push(capital);
+
+  console.log(fields[y - 1][x - 1], towns);
 
   return fields;
 }

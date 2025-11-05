@@ -1,38 +1,49 @@
 import GameHeader from "../../components/headers/GameHeader";
 import MainContent from "../../components/MainContent";
-import InfoSidebar from "../../components/sidebars/InfoSidebar";
 import NavigationSidebar from "../../components/sidebars/NavigationSidebar";
 
-import JungleBackground from "../../assets/images/backgrounds/jungle/Background.png";
-import DynamicContent from "../../components/dynamic-content/DynamicContent";
 import { useMapFieldsStore } from "../../stores/gameplay/mapFieldsStore";
+import BuildingsSection from "../../components/dynamic-content/BuildingsSection";
+import GameOperationMenu from "../../components/sidebars/GameOperationMenu";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import { useEffect } from "react";
+import type { Town } from "../../types/townTypes";
+import type { Field } from "../../types/fieldTypes";
+
+function isTown(field: Field | Town): field is Town {
+  return (field as Town).name !== undefined;
+  // Or, if your Town type has a specific discriminator, use that:
+  // return (field as Town).isTown === true;
+  // Or if Town type always has 'buildings' or 'resources':
+  // return (field as Town).buildings !== undefined;
+}
 
 export default function TownPage() {
   const { mapFields } = useMapFieldsStore();
 
+  const { setTowns, setActiveTown } = usePlayerTownsStore();
+
+  useEffect(() => {
+    if (mapFields && mapFields.length > 0) {
+      const towns: Town[] = mapFields.flatMap((row) => row.filter(isTown));
+
+      setTowns(towns);
+    }
+  }, []);
+
   console.log(mapFields);
 
   return (
-    <div className="flex flex-col max-w-screen h-screen">
-      <GameHeader />
-      <div
-        className="grid grid-cols-[20%_59%_20%] grid-rows-[70%_30%] gap-2 h-full px-2 pb-4 bg-cover relative z-0 bg-no-repeat"
-        style={{ backgroundImage: `url('${JungleBackground}')` }}
-      >
-        <div className="bg-white/20 absolute h-full top-0 w-full z-[-1]"></div>
-
-        <div className="h-full row-span-2">
-          <NavigationSidebar />
-        </div>
-
-        <MainContent />
-
-        <div className="h-full row-span-2">
-          <InfoSidebar />
-        </div>
-
-        <DynamicContent />
+    <div className="flex flex-col justify-between max-w-screen h-screen">
+      <div className="flex flex-col">
+        <NavigationSidebar />
+        <GameHeader />
       </div>
+      <div className="flex h-full">
+        <BuildingsSection />
+        <MainContent />
+      </div>
+      <GameOperationMenu />
     </div>
   );
 }

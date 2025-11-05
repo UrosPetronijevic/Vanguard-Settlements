@@ -13,7 +13,7 @@ export default function TownInfo() {
   }
 
   return (
-    <div className="w-full bg-lime-900/50 p-4 rounded-lg shadow-inner">
+    <div className="w-1/2 bg-lime-900/50 p-4 rounded-lg shadow-inner">
       <h4 className="text-xl font-bold mb-3 text-yellow-300 flex items-center justify-between">
         {activeTown.name}
         {activeTown.isCapital && (

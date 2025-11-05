@@ -15,12 +15,12 @@ export default function TownList() {
   }
 
   return (
-    <div className="flex flex-col h-full w-full p-2 gap-4">
-      <div className="bg-lime-900/60 p-3 rounded-lg shadow-lg flex-none max-h-[35%] overflow-y-auto custom-scrollbar">
+    <div className="flex w-full p-2">
+      <div className="p-2  shadow-lg overflow-y-auto custom-scrollbar w-[20%]">
         <TownNames />
       </div>
 
-      <div className="flex-none">
+      <div className="w-full flex items-center justify-center">
         <TownInfo />
       </div>
     </div>
