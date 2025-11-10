@@ -1,4 +1,3 @@
-import JungleWoodSidebar from "../../assets/images/backgrounds/jungle/Wood-background.png";
 import { useGameNavStore } from "../../stores/gameplay/gameNavStore";
 
 const navItems = [
@@ -18,7 +17,7 @@ export default function GameNav() {
         <div
           key={item.id}
           className={`
-              p-2 w-full text-center
+              px-2 py-1 w-full text-center
               drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]
               transition-colors duration-200 ease-in-out
               cursor-pointer

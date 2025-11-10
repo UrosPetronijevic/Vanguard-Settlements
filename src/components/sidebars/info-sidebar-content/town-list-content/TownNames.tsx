@@ -1,7 +1,7 @@
 import { usePlayerTownsStore } from "../../../../stores/gameplay/playerTownsStore";
 
 export default function TownNames() {
-  const { towns, activeTownId, setActiveTown } = usePlayerTownsStore();
+  const { towns, activeTown, setActiveTown } = usePlayerTownsStore();
 
   if (towns.length === 0) {
     return (
@@ -24,12 +24,12 @@ export default function TownNames() {
               p-2 rounded-md cursor-pointer transition-all duration-150 ease-in-out
               transform 
               ${
-                activeTownId === town.id
+                activeTown.id === town.id
                   ? "bg-lime-700/70 text-yellow-100 ring-2 ring-yellow-400 shadow-md" // Use ring for active state
                   : "bg-lime-900/40 text-gray-200 hover:bg-lime-800/60 hover:scale-[1.02]" // Subtle hover scale
               }
             `}
-            onClick={() => setActiveTown(town.id)}
+            onClick={() => setActiveTown(town)}
           >
             {town.name}
           </li>

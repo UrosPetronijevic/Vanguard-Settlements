@@ -2,10 +2,11 @@ import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
 import type { ProductionBuilding } from "../../types/townTypes";
 
 export default function BuildingsSection() {
-  const { towns, activeTownId } = usePlayerTownsStore();
-  const activeTown = towns.find((town) => town.id === activeTownId);
+  const { activeTown } = usePlayerTownsStore();
 
-  const getBuildingName = (building: ProductionBuilding) => {
+  console.log(activeTown, "active Town");
+
+  const getBuildingImg = (building: ProductionBuilding) => {
     switch (building.buildingName) {
       case "Western Silo":
         return "";
@@ -32,14 +33,18 @@ export default function BuildingsSection() {
   };
 
   return (
-    <div className="bg-red-50 w-2/5 grid grid-cols-3 gap-2">
-      {activeTown?.buildings.production.map((building, i) => (
+    <div className="bg-red-50 w-3/5 grid grid-cols-3 gap-2">
+      {activeTown?.buildings?.map((building: any, i: number) => (
         <div key={i}>
-          <img src={`${getBuildingName}`} />
+          <img src={`${getBuildingImg(building)}`} />
           <p className="flex justify-between px-2">
             <span>{building?.buildingName}</span>
-            <span className="h-7 w-7 font-bold text-center bg-cyan-50">
+            <span className="h-7 w-7 font-bold text-center bg-cyan-50 cursor-pointer">
               {building?.level}
+            </span>
+
+            <span className="h-7 w-7 font-bold text-center bg-cyan-50 cursor-pointer">
+              +
             </span>
           </p>
         </div>

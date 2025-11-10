@@ -117,7 +117,7 @@ export type Town = {
     | "Grassland town"
     | "Volcano town";
   coordinates: { x: number; y: number };
-  status: "town" | "city" | "megalopolis";
+  status: "village" | "town" | "megalopolis";
   isCapital: boolean;
   owner: string;
   resources: Resources;

@@ -38,5 +38,5 @@ export default function GameOperationMenu() {
       );
       break;
   }
-  return <div className="bg-green-100 p-2">{contentToRender}</div>;
+  return <div className="bg-green-100 h-[40%] p-2">{contentToRender}</div>;
 }

@@ -4,14 +4,14 @@ import type { Town } from "../../types/townTypes";
 
 interface PlayerTownsState {
   towns: Town[] | [];
-  activeTownId: string | null;
+  activeTown: any;
   isLoading: boolean;
   error: string | null;
 
   setTowns: (newTowns: Town[]) => void;
   addTown: (town: Town) => void;
   removeTown: (townId: string) => void;
-  setActiveTown: (townId: string | null) => void;
+  setActiveTown: (townId: any) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
 }
@@ -21,7 +21,7 @@ export const usePlayerTownsStore = create<PlayerTownsState>((set) => ({
   // Initial state
   towns: [],
 
-  activeTownId: "t1",
+  activeTown: "",
   isLoading: false,
   error: null,
 
@@ -33,11 +33,11 @@ export const usePlayerTownsStore = create<PlayerTownsState>((set) => ({
   removeTown: (townId) =>
     set((state) => ({
       towns: state.towns.filter((town) => town.id !== townId),
-      // If the removed town was active, set activeTownId to null
-      activeTownId: state.activeTownId === townId ? null : state.activeTownId,
+      // If the removed town was active, set activeTown to null
+      activeTownId: state.activeTown === townId ? null : state.activeTown,
     })),
 
-  setActiveTown: (townId) => set({ activeTownId: townId }),
+  setActiveTown: (townId) => set({ activeTown: townId }),
 
   setLoading: (loading) => set({ isLoading: loading }),
 

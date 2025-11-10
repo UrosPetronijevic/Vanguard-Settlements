@@ -22,8 +22,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Riverside Bakery", level: 0, productionBonus: 0 },
         { buildingName: "Bazar Bakery", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
     case "Hills town":
       return (buildings = [
@@ -32,8 +30,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Woodcutter", level: 0, productionBonus: 0 },
         { buildingName: "Stone Mason", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
     case "Lake town":
       return (buildings = [
@@ -45,8 +41,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Water Purifier", level: 0, productionBonus: 0 },
         { buildingName: "Clay Extractor", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
     case "Jungle town":
       return (buildings = [
@@ -56,8 +50,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Northern Woodcutter", level: 0, productionBonus: 0 },
         { buildingName: "Water Collector", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
     case "Caverns town":
       return (buildings = [
@@ -67,8 +59,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Grand Stone Mason", level: 0, productionBonus: 0 },
         { buildingName: "Water Collector", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
     case "Dune town":
       return (buildings = [
@@ -78,8 +68,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Grull farm", level: 0, productionBonus: 0 },
         { buildingName: "Water Exractor", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
     case "Wasteland town":
       return (buildings = [
@@ -89,8 +77,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Grull farm", level: 0, productionBonus: 0 },
         { buildingName: "Stone Exractor", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
     case "Volcano town":
       return (buildings = [
@@ -100,8 +86,6 @@ export default function generateBuildings(townType: string) {
         { buildingName: "Stone quarry", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Forger", level: 0, productionBonus: 0 },
         { buildingName: "Weapon Smith", level: 0, productionBonus: 0 },
-        { buildingName: "Barracks", level: 0, productionBonus: 0 },
-        { buildingName: "Trade Station", level: 0 },
       ]);
   }
 

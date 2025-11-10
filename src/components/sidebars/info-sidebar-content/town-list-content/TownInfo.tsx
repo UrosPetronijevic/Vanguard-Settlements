@@ -1,8 +1,7 @@
 import { usePlayerTownsStore } from "../../../../stores/gameplay/playerTownsStore";
 
 export default function TownInfo() {
-  const { towns, activeTownId } = usePlayerTownsStore();
-  const activeTown = towns.find((town) => town.id === activeTownId);
+  const { activeTown } = usePlayerTownsStore();
 
   if (!activeTown) {
     return (
@@ -22,7 +21,7 @@ export default function TownInfo() {
           </span>
         )}
       </h4>
-      <div className="flex flex-col gap-2 text-gray-200">
+      <div className="flex flex-col gap-1 text-gray-200">
         <p>
           <span className="font-semibold">Type:</span> {activeTown.type}
         </p>
@@ -31,7 +30,7 @@ export default function TownInfo() {
           {activeTown.coordinates.x}, {activeTown.coordinates.y})
         </p>
         <p>
-          <span className="font-semibold">Status:</span>{" "}
+          <span className="font-semibold">Status:</span>
           <span
             className={`
               px-2 py-0.5 rounded-full text-xs font-medium
