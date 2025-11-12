@@ -10,11 +10,19 @@ import fetchNatureFields from "../../utils/server/fetch/fetchNatureFields";
 import fetchTowns from "../../utils/server/fetch/fetchTowns";
 import ResourcesDisplay from "../../components/ResourcesDisplay";
 import GameNav from "../../components/navigation/GameNav";
+import { useActiveBuildingStore } from "../../stores/activeBuildingStore";
+import BuildingPopup from "../../components/dynamic-content/BuildingPopup";
+import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
+import TradeActionsPopup from "../../components/dynamic-content/TradeActionsPopup";
 
 export default function TownPage() {
   const { setMapFields, mapFields } = useMapFieldsStore();
 
   const { setTowns, setActiveTown, towns } = usePlayerTownsStore();
+
+  const { activeBuilding } = useActiveBuildingStore();
+
+  const { tradeRoutPopup } = useTradeRoutPopupStore();
 
   useEffect(() => {
     const loadMapData = async () => {
@@ -50,6 +58,9 @@ export default function TownPage() {
         <MainContent />
       </div>
       <GameOperationMenu />
+
+      {activeBuilding !== null ? <BuildingPopup /> : ""}
+      {tradeRoutPopup && <TradeActionsPopup />}
     </div>
   );
 }

@@ -19,7 +19,7 @@ export default function createTown(
 ) {
   const buildings = generateBuildings(townType);
   const barracks = createBarracks(townType);
-  const tradeStation = createTrade(townType);
+  const tradeStation = createTrade(townType, townId);
   const resources = generateResources(townType);
 
   const town = {

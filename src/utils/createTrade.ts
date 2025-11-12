@@ -1,53 +1,59 @@
-export default function createTrade(townType: string) {
+export default function createTrade(townType: string, townId: string) {
   let tradeStation;
 
   if (townType === "Elysium town" || townType === "Volcano town") {
     tradeStation = {
       buildingName: "Trade Station",
       level: 0,
-      tradeRouts: {
-        town1: {
+      tradeRouts: [
+        {
           resource: null,
-          sender: {},
-          receiver: {},
+          sender: townId,
+          receiver: null,
+          percent: 0,
         },
 
-        town2: {
+        {
           resource: null,
-          sender: {},
-          receiver: {},
+          sender: townId,
+          receiver: null,
+          percent: 0,
         },
 
-        town3: {
+        {
           resource: null,
-          sender: {},
-          receiver: {},
+          sender: townId,
+          receiver: null,
+          percent: 0,
         },
 
-        town4: {
+        {
           resource: null,
-          sender: {},
-          receiver: {},
+          sender: townId,
+          receiver: null,
+          percent: 0,
         },
-      },
+      ],
     };
   } else {
     tradeStation = {
       buildingName: "Trade Station",
       level: 0,
-      tradeRouts: {
-        town1: {
+      tradeRouts: [
+        {
           resource: null,
-          sender: {},
-          receiver: {},
+          sender: townId,
+          receiver: null,
+          percent: 0,
         },
 
-        town2: {
+        {
           resource: null,
-          sender: {},
-          receiver: {},
+          sender: townId,
+          receiver: null,
+          percent: 0,
         },
-      },
+      ],
     };
   }
 
