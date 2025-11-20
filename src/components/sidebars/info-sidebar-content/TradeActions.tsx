@@ -1,5 +1,5 @@
 import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
-import TradeRout from "../../dynamic-content/TradeRout";
+import TradeRout from "../../dynamic-content/trade/TradeRout";
 
 export default function TradeActions() {
   const { activeTown } = usePlayerTownsStore();
@@ -18,7 +18,7 @@ export default function TradeActions() {
             {activeTown.tradeStation.level === 0
               ? activeTown.tradeStation.tradeRouts.map(
                   (rout: any, i: number) => {
-                    return <TradeRout key={i} />;
+                    return <TradeRout key={i} index={i} />;
                   }
                 )
               : "No available trade routs, upgrade your trade station first"}

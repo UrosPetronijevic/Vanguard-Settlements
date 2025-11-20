@@ -22,7 +22,35 @@ export default async function gameStart() {
     `${"oke"}`
   );
 
+  let testTown = createTown(
+    map[y - 2][x - 2].id,
+    "TestTown",
+    "Lake town",
+    {
+      x: map[y - 2][x - 2].coordinates.x,
+      y: map[y - 2][x - 2].coordinates.y,
+    },
+    "town",
+    false,
+    `${"oke"}`
+  );
+
+  let testTown2 = createTown(
+    map[y - 3][x - 3].id,
+    "TestTown2",
+    "Volcano town",
+    {
+      x: map[y - 3][x - 3].coordinates.x,
+      y: map[y - 3][x - 3].coordinates.y,
+    },
+    "town",
+    false,
+    `${"oke"}`
+  );
+
   map[y - 1][x - 1] = startingCapital;
+  map[y - 2][x - 2] = testTown;
+  map[y - 3][x - 3] = testTown2;
 
   for (let i = 0; i < map.length; i++) {
     for (let j = 0; j < map[i].length; j++) {

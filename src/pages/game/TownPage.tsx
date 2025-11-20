@@ -2,7 +2,7 @@ import GameHeader from "../../components/headers/GameHeader";
 import MainContent from "../../components/MainContent";
 
 import { useMapFieldsStore } from "../../stores/gameplay/mapFieldsStore";
-import BuildingsSection from "../../components/dynamic-content/BuildingsSection";
+import BuildingsSection from "../../components/dynamic-content/buildings/BuildingsSection";
 import GameOperationMenu from "../../components/sidebars/GameOperationMenu";
 import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
 import { useEffect } from "react";
@@ -11,9 +11,9 @@ import fetchTowns from "../../utils/server/fetch/fetchTowns";
 import ResourcesDisplay from "../../components/ResourcesDisplay";
 import GameNav from "../../components/navigation/GameNav";
 import { useActiveBuildingStore } from "../../stores/activeBuildingStore";
-import BuildingPopup from "../../components/dynamic-content/BuildingPopup";
 import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
-import TradeActionsPopup from "../../components/dynamic-content/TradeActionsPopup";
+import TradeActionsPopup from "../../components/dynamic-content/trade/TradeActionsPopup";
+import BuildingPopup from "../../components/dynamic-content/buildings/BuildingPopup";
 
 export default function TownPage() {
   const { setMapFields, mapFields } = useMapFieldsStore();
@@ -36,7 +36,10 @@ export default function TownPage() {
 
       if (towns) {
         setTowns(towns);
-        setActiveTown(towns[0]);
+
+        const capital = towns.find((town) => town.isCapital);
+
+        setActiveTown(capital);
       }
     };
 

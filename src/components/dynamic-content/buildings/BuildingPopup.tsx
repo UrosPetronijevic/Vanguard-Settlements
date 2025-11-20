@@ -1,4 +1,4 @@
-import { useActiveBuildingStore } from "../../stores/activeBuildingStore";
+import { useActiveBuildingStore } from "../../../stores/activeBuildingStore";
 
 export default function BuildingPopup() {
   const { activeBuilding } = useActiveBuildingStore();

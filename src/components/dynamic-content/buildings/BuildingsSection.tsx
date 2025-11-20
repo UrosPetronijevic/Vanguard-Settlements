@@ -1,6 +1,6 @@
-import { useActiveBuildingStore } from "../../stores/activeBuildingStore";
-import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
-import type { ProductionBuilding } from "../../types/townTypes";
+import { useActiveBuildingStore } from "../../../stores/activeBuildingStore";
+import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
+import type { ProductionBuilding } from "../../../types/townTypes";
 
 export default function BuildingsSection() {
   const { activeTown } = usePlayerTownsStore();

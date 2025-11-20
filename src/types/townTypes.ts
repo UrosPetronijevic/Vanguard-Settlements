@@ -1,108 +1,54 @@
-type Buildings = {
-  production: [
-    building1?: ProductionBuilding,
+// Define your specific resource names as a union type for better strictness
+export type ResourceName =
+  | "wood"
+  | "food"
+  | "water"
+  | "stone"
+  | "metal"
+  | "clay"
+  | "sand";
 
-    building2?: ProductionBuilding,
-
-    building3?: ProductionBuilding,
-
-    buildin4?: ProductionBuilding,
-
-    building5?: ProductionBuilding,
-
-    building6?: ProductionBuilding,
-
-    building7?: ProductionBuilding,
-
-    building8?: ProductionBuilding,
-
-    building9?: ProductionBuilding,
-
-    building10?: ProductionBuilding,
-
-    building11?: ProductionBuilding,
-
-    building12?: ProductionBuilding,
-
-    building13?: ProductionBuilding,
-
-    building14?: ProductionBuilding,
-
-    building15?: ProductionBuilding
-  ];
-
-  baracks: {
-    buildingName: string;
-    level: number;
-  };
-
-  tradeStation: {
-    buildingName: string;
-    level: number;
-    traders: number;
-
-    tradeRouts: {
-      route1?: {
-        senderId: string | null;
-        receiverId: string | null;
-      };
-
-      route2?: {
-        senderId: string | null;
-        receiverId: string | null;
-      };
-
-      route3?: {
-        senderId: string | null;
-        receiverId: string | null;
-      };
-    };
-  };
+// --- Resource Types ---
+export type Resource = {
+  amount: number;
+  perHour: number;
+  percentAdd: number;
+  percentSub: number;
 };
 
+// Use a Record type for Resources for better flexibility and type safety
+export type Resources = Record<ResourceName, Resource>;
+
+// --- Building Types ---
 export type ProductionBuilding = {
   buildingName: string;
   level: number;
   productionBonus: number;
 };
 
-type Resources = {
-  wood: {
-    amount: number;
-    perHour: number;
-  };
-
-  food: {
-    amount: number;
-    perHour: number;
-  };
-
-  water: {
-    amount: number;
-    perHour: number;
-  };
-
-  stone: {
-    amount: number;
-    perHour: number;
-  };
-
-  metal: {
-    amount: number;
-    perHour: number;
-  };
-
-  clay: {
-    amount: number;
-    perHour: number;
-  };
-
-  sand: {
-    amount: number;
-    perHour: number;
-  };
+export type Barracks = {
+  buildingName: string;
+  level: number;
+  trainingTime: number;
+  army: Record<string, any>; // Assuming army can be an empty object or have dynamic keys
 };
 
+// Define the structure of a single trade route
+export type TradeRoute = {
+  sender: string | null;
+  receiver: string | null;
+  resource: ResourceName | null; // Use the ResourceName type here
+  percent: number;
+};
+
+export type TradeStation = {
+  buildingName: string;
+  level: number;
+  // Based on console, `traders` is not present, removed.
+  tradeRouts: TradeRoute[]; // Changed from object to array
+};
+
+// --- Town Type ---
 export type Town = {
   id: string;
   name: string;
@@ -117,10 +63,12 @@ export type Town = {
     | "Grassland town"
     | "Volcano town";
   coordinates: { x: number; y: number };
-  status: "village" | "town" | "megalopolis";
+  status: "village" | "town" | "city" | "megalopolis"; // Added "city"
   isCapital: boolean;
   owner: string;
+  buildings: ProductionBuilding[]; // Changed from Buildings object to array directly
+  barracks: Barracks;
+  tradeStation: TradeStation;
   resources: Resources;
-
-  buildings: Buildings;
+  // If there are other top-level properties not shown in your console log, add them here.
 };
