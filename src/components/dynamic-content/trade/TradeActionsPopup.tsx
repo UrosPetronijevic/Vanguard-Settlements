@@ -42,13 +42,31 @@ export default function TradeActionsPopup() {
       percent !== null && // check for null/undefined
       typeof percent === "number"
     ) {
+      //////////////////////////////////////
+      //OLD RECEIVER TOWN
+      let oldReceiverTown: Town | null = null;
+      const currentRouteBeingEdited =
+        activeTown.tradeStation.tradeRouts[routIndex];
+
+      if (currentRouteBeingEdited && currentRouteBeingEdited.receiver) {
+        // Find the town object corresponding to the old receiver ID
+        oldReceiverTown =
+          towns.find((t) => t.id === currentRouteBeingEdited.receiver) || null;
+      }
+      /////////////////////////////////////////
+
       // Calculate the new town states
-      const { updatedActiveTown, updatedTradeReceiver } = calculateTownPercent(
+      const {
+        updatedActiveTown,
+        updatedTradeReceiver,
+        updatedOldReceiverTown,
+      } = calculateTownPercent(
         activeTown,
         tradeReceiver, // Cast tradeReceiver to Town if it's guaranteed by previous checks
         resource as ResourceName, // Cast resource to ResourceName
         percent,
-        routIndex
+        routIndex,
+        oldReceiverTown
       );
 
       console.log(updatedActiveTown, "UPDATED TOWN");
@@ -64,24 +82,33 @@ export default function TradeActionsPopup() {
         updatedTradeReceiver.tradeStation,
         updatedTradeReceiver.resources
       );
+      if (updatedOldReceiverTown) {
+        await updateTowns(
+          updatedOldReceiverTown.id,
+          updatedOldReceiverTown.tradeStation,
+          updatedOldReceiverTown.resources
+        );
+      }
 
       // Create a NEW towns array with the updated towns
-      // const newTowns = towns.map((town) => {
-      //   if (town.id === updatedActiveTown.id) {
-      //     return updatedActiveTown;
-      //   }
-      //   if (town.id === updatedTradeReceiver.id) {
-      //     return updatedTradeReceiver;
-      //   }
-      //   return town; // Return original town if not the ones being updated
-      // });
-
-      // console.log(newTowns, "NEW TOWNS UPDATED");
+      const newTowns = towns.map((town) => {
+        if (town.id === updatedActiveTown.id) {
+          return updatedActiveTown;
+        }
+        if (town.id === updatedTradeReceiver.id) {
+          return updatedTradeReceiver;
+        }
+        if (
+          updatedOldReceiverTown !== null &&
+          town.id === updatedOldReceiverTown.id
+        ) {
+          return updatedOldReceiverTown;
+        }
+        return town; // Return original town if not the ones being updated
+      });
 
       // // Update the global towns state in Zustand
-      // setTowns(newTowns);
-
-      // console.log(towns, "TOWNS UPDATED");
+      setTowns(newTowns);
 
       // IMPORTANT: If activeTown itself was updated, and you want the
       // currently "active" town in the store to reflect these changes
