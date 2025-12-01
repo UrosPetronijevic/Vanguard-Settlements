@@ -4,7 +4,7 @@ import type { Town } from "../../types/townTypes";
 
 interface PlayerTownsState {
   towns: Town[] | [];
-  activeTown: any;
+  activeTown: Town | null;
   isLoading: boolean;
   error: string | null;
 
@@ -21,7 +21,7 @@ export const usePlayerTownsStore = create<PlayerTownsState>((set) => ({
   // Initial state
   towns: [],
 
-  activeTown: "",
+  activeTown: null,
   isLoading: false,
   error: null,
 
@@ -33,8 +33,6 @@ export const usePlayerTownsStore = create<PlayerTownsState>((set) => ({
   removeTown: (townId) =>
     set((state) => ({
       towns: state.towns.filter((town) => town.id !== townId),
-      // If the removed town was active, set activeTown to null
-      activeTownId: state.activeTown === townId ? null : state.activeTown,
     })),
 
   setActiveTown: (townId) => set({ activeTown: townId }),

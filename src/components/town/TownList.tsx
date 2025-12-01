@@ -1,6 +1,6 @@
-import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
-import TownInfo from "./town-list-content/TownInfo";
-import TownNames from "./town-list-content/TownNames";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import TownInfo from "./TownInfo";
+import TownNames from "./TownNames";
 
 export default function TownList() {
   const isLoading = usePlayerTownsStore((state) => state.isLoading);

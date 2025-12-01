@@ -142,7 +142,8 @@ export default function calculateTownPercent(
       ...finalActiveTown.resources, // Copy current resources state
       [resource]: {
         ...currentActiveResourceForNewTrade, // Copy existing properties of the NEW resource
-        percentSub: newTransferAmount,
+        percentSub:
+          currentActiveResourceForNewTrade.percentSub + newTransferAmount,
         perHour: currentActiveResourceForNewTrade.perHour - newTransferAmount,
       },
     },

@@ -1,5 +1,5 @@
-import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
-import TradeRout from "../../dynamic-content/trade/TradeRout";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import TradeRout from "./TradeRout";
 
 export default function TradeActions() {
   const { activeTown } = usePlayerTownsStore();

@@ -1,6 +1,6 @@
 // TradeResourceSelect.tsx (no changes needed to this file after store fix)
 import { type ChangeEvent } from "react";
-import { useTradeRoutPopupStore } from "../../../stores/tradeRoutPopupStore";
+import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
 
 const RESOURCES = ["water", "wood", "food", "clay", "sand", "stone", "metal"];
 

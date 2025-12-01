@@ -1,4 +1,4 @@
-import { usePlayerTownsStore } from "../../../../stores/gameplay/playerTownsStore";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
 
 export default function TownInfo() {
   const { activeTown } = usePlayerTownsStore();

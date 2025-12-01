@@ -1,16 +1,16 @@
-import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
-import { useTradeRoutPopupStore } from "../../../stores/tradeRoutPopupStore";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
 import TradeReceiverSelect from "./TradeReceiverSelect";
 import TradeResourceSelect from "./TradeResourceSelect";
 import TradePercentSlider from "./TradePercentSlider";
-import calculateTownPercent from "../../../utils/calculateTownPercent";
-import type { ResourceName, Town } from "../../../types/townTypes";
-import updateTowns from "../../../utils/server/updateTowns";
+import calculateTownPercent from "../../utils/calculateTownPercent";
+import type { ResourceName, Town } from "../../types/townTypes";
+import updateTowns from "../../utils/server/updateTowns";
 
 export default function TradeActionsPopup() {
   const {
     setTradeRoutPopup,
-    setActiveTrade,
+
     tradeReceiver,
     resource,
     percent,
@@ -116,11 +116,10 @@ export default function TradeActionsPopup() {
       // from the store, you should also update `activeTown` in the store.
       // However, if `activeTown` is always picked from `towns` in other components,
       // this might not be strictly necessary, but it's good for consistency.
-      // setActiveTown(updatedActiveTown);
+      setActiveTown(updatedActiveTown);
 
       // Close the popup and set active trade status
       setTradeRoutPopup(false);
-      setActiveTrade(true);
     } else {
       console.warn(
         "Cannot confirm trade: Missing activeTown, tradeReceiver, resource, or percent."

@@ -15,7 +15,7 @@ export default function MainContent() {
   const currentTownImage = townImage();
 
   function townImage() {
-    switch (activeTown.type) {
+    switch (activeTown?.type) {
       case "Hills town":
         return hillsTown;
       case "Wasteland town":
@@ -24,9 +24,9 @@ export default function MainContent() {
         return cavernsTown;
       case "Dune town":
         return duneTown;
-      case "Elysian town":
+      case "Elysium town":
         return elysianTown;
-      case "Grasslands town":
+      case "Grassland town":
         return grassLands;
       case "Jungle town":
         return jungleTown;

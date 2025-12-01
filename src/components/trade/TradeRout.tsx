@@ -1,15 +1,14 @@
-import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
-import { useTradeRoutPopupStore } from "../../../stores/tradeRoutPopupStore";
-import deleteTradeRout from "../../../utils/deleteTradeRout";
-import updateTowns from "../../../utils/server/updateTowns";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
+import deleteTradeRout from "../../utils/deleteTradeRout";
+import updateTowns from "../../utils/server/updateTowns";
 
 type TradeRoutProps = {
   index: number;
 };
 
 export default function TradeRout({ index }: TradeRoutProps) {
-  const { setTradeRoutPopup, activeTrade, setRoutIndex } =
-    useTradeRoutPopupStore();
+  const { setTradeRoutPopup, setRoutIndex } = useTradeRoutPopupStore();
 
   const { activeTown, towns, setActiveTown, setTowns } = usePlayerTownsStore();
 
@@ -66,7 +65,7 @@ export default function TradeRout({ index }: TradeRoutProps) {
 
   return (
     <div className="w-full flex justify-between p-4 items-center">
-      {!activeTrade ? (
+      {activeTown?.tradeStation.tradeRouts[index].receiver === null ? (
         <>
           <span>Create a new trade rout:</span>
           <button
@@ -93,7 +92,7 @@ export default function TradeRout({ index }: TradeRoutProps) {
         </>
       )}
 
-      {activeTown.tradeStation.tradeRouts[index].receiver !== null ? (
+      {activeTown?.tradeStation.tradeRouts[index].receiver !== null ? (
         <button
           className="p-2 bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
           onClick={() => {

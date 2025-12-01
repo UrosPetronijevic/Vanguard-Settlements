@@ -1,5 +1,5 @@
 import { type ChangeEvent } from "react";
-import { useTradeRoutPopupStore } from "../../../stores/tradeRoutPopupStore";
+import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
 
 export default function TradePercentSlider() {
   const { percent, setPercent } = useTradeRoutPopupStore();

@@ -1,6 +1,10 @@
-import { useActiveBuildingStore } from "../../../stores/activeBuildingStore";
-import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
-import type { ProductionBuilding } from "../../../types/townTypes";
+import { useActiveBuildingStore } from "../../stores/activeBuildingStore";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import type {
+  Barracks,
+  ProductionBuilding,
+  TradeStation,
+} from "../../types/townTypes";
 
 export default function BuildingsSection() {
   const { activeTown } = usePlayerTownsStore();
@@ -9,8 +13,10 @@ export default function BuildingsSection() {
 
   console.log(activeTown, "active Town");
 
-  const getBuildingImg = (building: ProductionBuilding) => {
-    switch (building.buildingName) {
+  const getBuildingImg = (
+    building: ProductionBuilding | Barracks | TradeStation | null | undefined
+  ) => {
+    switch (building?.buildingName) {
       case "Western Silo":
         return "";
       case "Eastern Silo":
@@ -28,6 +34,8 @@ export default function BuildingsSection() {
       case "Riverside Bakery":
         return "";
       case "Bazar Bakery":
+        return "";
+      case "Hills Barracks":
         return "";
       case "Barracks":
         return "";
@@ -57,6 +65,25 @@ export default function BuildingsSection() {
           </p>
         </div>
       ))}
+      {/* <div
+        onClick={() => {
+          if (activeTown?.barracks) {
+            setActiveBuilding(activeTown?.barracks);
+          }
+        }}
+      >
+        <img src={`${getBuildingImg(activeTown?.barracks)}`} />
+        <p className="flex justify-between px-2">
+          <span>{activeTown?.barracks.buildingName}</span>
+          <span className="h-7 w-7 font-bold text-center bg-cyan-50 cursor-pointer">
+            {activeTown?.barracks.level}
+          </span>
+
+          <span className="h-7 w-7 font-bold text-center bg-cyan-50 cursor-pointer">
+            +
+          </span>
+        </p>
+      </div> */}
     </div>
   );
 }

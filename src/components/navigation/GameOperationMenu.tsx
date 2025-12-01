@@ -1,8 +1,8 @@
 import { useGameNavStore } from "../../stores/gameplay/gameNavStore";
-import TownList from "./info-sidebar-content/TownList";
-import TradeActions from "./info-sidebar-content/TradeActions";
-import TroopsList from "./info-sidebar-content/TroopsList";
-import ReportsList from "./info-sidebar-content/ReportsList";
+import TownList from "../town/TownList";
+import TradeActions from "../trade/TradeActions";
+import ReportsList from "../reports/ReportsList";
+import ArmyInfo from "../army/ArmyInfo";
 
 export default function GameOperationMenu() {
   const { activeNavPage } = useGameNavStore();
@@ -21,7 +21,7 @@ export default function GameOperationMenu() {
       contentToRender = <TradeActions />;
       break;
     case "troops":
-      contentToRender = <TroopsList />;
+      contentToRender = <ArmyInfo />;
       break;
     case "reports":
       contentToRender = <ReportsList />;

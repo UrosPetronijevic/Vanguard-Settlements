@@ -1,6 +1,6 @@
 import { type ChangeEvent } from "react";
-import { usePlayerTownsStore } from "../../../stores/gameplay/playerTownsStore";
-import { useTradeRoutPopupStore } from "../../../stores/tradeRoutPopupStore";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
 
 export default function TradeReceiverSelect() {
   /////////////////////////////////

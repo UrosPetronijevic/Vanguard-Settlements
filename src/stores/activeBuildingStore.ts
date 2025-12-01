@@ -1,19 +1,17 @@
 // activeHomePageStore.tsx
 import { create } from "zustand";
-
-type Building = {
-  buildingName: string;
-  level: number;
-  productionBonus: number;
-};
+import type { Building } from "../types/gameplay/genericTypes";
+import type { Barracks, TradeStation } from "../types/townTypes";
 
 interface ActiveBuildingState {
-  activeBuilding: Building | null;
-  setActiveBuilding: (pageName: Building | null) => void;
+  activeBuilding: Building | Barracks | TradeStation | null;
+  setActiveBuilding: (
+    pageName: Building | Barracks | TradeStation | null
+  ) => void;
 }
 
 export const useActiveBuildingStore = create<ActiveBuildingState>((set) => ({
   activeBuilding: null,
-  setActiveBuilding: (building: Building | null) =>
+  setActiveBuilding: (building: Building | Barracks | TradeStation | null) =>
     set({ activeBuilding: building }),
 }));

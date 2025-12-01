@@ -2,8 +2,8 @@ import GameHeader from "../../components/headers/GameHeader";
 import MainContent from "../../components/MainContent";
 
 import { useMapFieldsStore } from "../../stores/gameplay/mapFieldsStore";
-import BuildingsSection from "../../components/dynamic-content/buildings/BuildingsSection";
-import GameOperationMenu from "../../components/sidebars/GameOperationMenu";
+import BuildingsSection from "../../components/buildings/BuildingsSection";
+import GameOperationMenu from "../../components/navigation/GameOperationMenu";
 import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
 import { useEffect } from "react";
 import fetchNatureFields from "../../utils/server/fetch/fetchNatureFields";
@@ -12,8 +12,10 @@ import ResourcesDisplay from "../../components/ResourcesDisplay";
 import GameNav from "../../components/navigation/GameNav";
 import { useActiveBuildingStore } from "../../stores/activeBuildingStore";
 import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
-import TradeActionsPopup from "../../components/dynamic-content/trade/TradeActionsPopup";
-import BuildingPopup from "../../components/dynamic-content/buildings/BuildingPopup";
+import TradeActionsPopup from "../../components/trade/TradeActionsPopup";
+import BuildingPopup from "../../components/buildings/BuildingPopup";
+import { useUnitPopupStore } from "../../stores/unitPopupStore";
+import UnitsPopup from "../../components/army/UnitsPopup";
 
 export default function TownPage() {
   const { setMapFields, mapFields } = useMapFieldsStore();
@@ -23,6 +25,8 @@ export default function TownPage() {
   const { activeBuilding } = useActiveBuildingStore();
 
   const { tradeRoutPopup } = useTradeRoutPopupStore();
+
+  const { unitPopup } = useUnitPopupStore();
 
   useEffect(() => {
     const loadMapData = async () => {
@@ -64,6 +68,7 @@ export default function TownPage() {
 
       {activeBuilding !== null ? <BuildingPopup /> : ""}
       {tradeRoutPopup && <TradeActionsPopup />}
+      {unitPopup && <UnitsPopup />}
     </div>
   );
 }

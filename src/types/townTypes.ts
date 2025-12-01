@@ -26,12 +26,33 @@ export type ProductionBuilding = {
   productionBonus: number;
 };
 
+//////////////////////////////////UNITS/////////////////////////////////////////////////
+
+export type UnitName = "swordman" | "spearman" | "horseman"; // Add all your unit types here  | "archer" | "knight" | "wizard" | "barbarian"
+
+export type Stats = {
+  attack: number;
+  defense: number;
+  health: number;
+  bonusDmg: number;
+};
+
+export type Unit = {
+  unitType: UnitName; // Storing the name here is redundant if it's the key, but can be useful for type consistency
+  amount: number;
+  stats: Stats;
+};
+
+export type Army = Partial<Record<UnitName, Unit>>; // Allows for an army to not have all unit types initially
+
 export type Barracks = {
   buildingName: string;
   level: number;
   trainingTime: number;
   army: Record<string, any>; // Assuming army can be an empty object or have dynamic keys
 };
+
+//////////////////////////////////TRADE/////////////////////////////////////////////////
 
 // Define the structure of a single trade route
 export type TradeRoute = {
@@ -47,6 +68,8 @@ export type TradeStation = {
   // Based on console, `traders` is not present, removed.
   tradeRouts: TradeRoute[]; // Changed from object to array
 };
+
+//////////////////////////////////TOWN/////////////////////////////////////////////////
 
 // --- Town Type ---
 export type Town = {

@@ -20,6 +20,7 @@ export default function deleteTradeRout(
   }
 
   const routeToDelete = activeTown.tradeStation.tradeRouts[routIndex];
+  let amountToSubtractFromPercentSub = 0;
 
   // If the route doesn't have a resource or percent, it might not have any effects to undo
   // We'll still reset its object properties below, but this warning is useful for debugging
@@ -48,6 +49,7 @@ export default function deleteTradeRout(
 
       if (receiverResource && receiverResource.percentAdd > 0) {
         const oldPercentAddAmount = receiverResource.percentAdd;
+        amountToSubtractFromPercentSub = oldPercentAddAmount;
 
         updatedReceiverTown = {
           ...receiverTown,
@@ -87,8 +89,8 @@ export default function deleteTradeRout(
         ...activeTown.resources,
         [resourceName]: {
           ...activeTownResource,
-          percentSub: 0, // Reset percentSub
-          perHour: activeTownResource.perHour + oldPercentSubAmount, // Add back old percentSub
+          percentSub: oldPercentSubAmount - amountToSubtractFromPercentSub,
+          perHour: activeTownResource.perHour + amountToSubtractFromPercentSub, // Add back old percentSub
         },
       };
       console.log(

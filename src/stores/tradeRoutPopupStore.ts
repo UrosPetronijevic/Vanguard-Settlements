@@ -3,8 +3,6 @@ import { create } from "zustand";
 
 interface TradeRoutPopupState {
   // Consistent naming with component
-  activeTrade: boolean;
-  setActiveTrade: (bool: boolean) => void;
 
   resource: string | null;
   setResource: (res: string | null) => void;
@@ -23,9 +21,6 @@ interface TradeRoutPopupState {
 }
 
 export const useTradeRoutPopupStore = create<TradeRoutPopupState>((set) => ({
-  activeTrade: false,
-  setActiveTrade: (bool: boolean) => set({ activeTrade: bool }),
-
   tradeReceiver: null,
   setTradeReceiver: (town: any | null) => set({ tradeReceiver: town }),
 

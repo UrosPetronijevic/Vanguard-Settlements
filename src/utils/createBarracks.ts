@@ -1,10 +1,43 @@
+import type { Barracks } from "../types/townTypes";
+
 export default function createBarracks(townType: string) {
-  const baracks = {
+  const baracks: Barracks = {
     buildingName: "",
     level: 0,
     trainingTime: 0,
 
-    army: {},
+    army: {
+      swordman: {
+        unitType: "swordman",
+        amount: 0,
+        stats: {
+          attack: 10,
+          defense: 5,
+          health: 30,
+          bonusDmg: 5,
+        },
+      },
+      spearman: {
+        unitType: "spearman",
+        amount: 0,
+        stats: {
+          attack: 7,
+          defense: 8,
+          health: 30,
+          bonusDmg: 5,
+        },
+      },
+      horseman: {
+        unitType: "horseman",
+        amount: 0,
+        stats: {
+          attack: 10,
+          defense: 7,
+          health: 40,
+          bonusDmg: 5,
+        },
+      },
+    },
   };
 
   switch (townType) {

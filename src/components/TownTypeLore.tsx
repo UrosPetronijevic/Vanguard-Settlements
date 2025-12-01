@@ -1,10 +1,10 @@
-import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import { usePlayerTownsStore } from "../stores/gameplay/playerTownsStore";
 
 export default function TownTypeLore() {
-  const { towns, activeTownId } = usePlayerTownsStore();
-  const activeTown = towns.find((town) => town.id === activeTownId);
+  const { towns, activeTown } = usePlayerTownsStore();
+  const activeTownId = towns.find((town) => town.id === activeTown?.id);
 
-  if (!activeTown) {
+  if (!activeTownId) {
     return (
       <div className="text-center p-4 text-gray-400">
         Select a town to learn about its type.
@@ -50,7 +50,7 @@ export default function TownTypeLore() {
     }
   };
 
-  const typeInfo = getTypeDescription(activeTown.type);
+  const typeInfo = getTypeDescription(activeTownId.type);
 
   return (
     <div className="w-full bg-lime-900/50 p-4 rounded-lg shadow-inner mt-4">

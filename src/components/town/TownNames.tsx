@@ -1,4 +1,5 @@
-import { usePlayerTownsStore } from "../../../../stores/gameplay/playerTownsStore";
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
+import type { Town } from "../../types/townTypes";
 
 export default function TownNames() {
   const { towns, activeTown, setActiveTown } = usePlayerTownsStore();
@@ -17,14 +18,14 @@ export default function TownNames() {
         Your Towns
       </h4>
       <ul className="space-y-1">
-        {towns.map((town) => (
+        {towns.map((town: Town) => (
           <li
             key={town.id}
             className={`
               p-2 rounded-md cursor-pointer transition-all duration-150 ease-in-out
               transform 
               ${
-                activeTown.id === town.id
+                activeTown?.id === town.id
                   ? "bg-lime-700/70 text-yellow-100 ring-2 ring-yellow-400 shadow-md" // Use ring for active state
                   : "bg-lime-900/40 text-gray-200 hover:bg-lime-800/60 hover:scale-[1.02]" // Subtle hover scale
               }
