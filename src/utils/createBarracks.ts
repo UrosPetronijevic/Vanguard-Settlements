@@ -16,6 +16,12 @@ export default function createBarracks(townType: string) {
           health: 30,
           bonusDmg: 5,
         },
+        cost: {
+          wood: 0,
+          metal: 10,
+          foodConsumption: 1,
+          waterConsumption: 1,
+        },
       },
       spearman: {
         unitType: "spearman",
@@ -26,6 +32,12 @@ export default function createBarracks(townType: string) {
           health: 30,
           bonusDmg: 5,
         },
+        cost: {
+          wood: 7,
+          metal: 3,
+          foodConsumption: 1,
+          waterConsumption: 1,
+        },
       },
       horseman: {
         unitType: "horseman",
@@ -35,6 +47,12 @@ export default function createBarracks(townType: string) {
           defense: 7,
           health: 40,
           bonusDmg: 5,
+        },
+        cost: {
+          wood: 10,
+          metal: 10,
+          foodConsumption: 2,
+          waterConsumption: 2,
         },
       },
     },

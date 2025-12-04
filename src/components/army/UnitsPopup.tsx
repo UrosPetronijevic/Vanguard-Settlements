@@ -1,11 +1,20 @@
+import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
 import { useUnitPopupStore } from "../../stores/unitPopupStore";
+import Unit from "./units/Unit";
 
 export default function UnitsPopup() {
   const { setUnitpopup } = useUnitPopupStore();
+  const { activeTown } = usePlayerTownsStore();
 
   const handleClose = () => {
     setUnitpopup(false);
   };
+
+  const availableUnits = activeTown?.barracks?.army
+    ? Object.values(activeTown.barracks.army)
+    : [];
+
+  console.log(availableUnits, "availableUnits");
 
   return (
     <div className="absolute max-w-screen w-screen max-h-screen h-screen flex items-center justify-center z-50">
@@ -20,7 +29,18 @@ export default function UnitsPopup() {
         <div className="flex-grow overflow-y-auto pr-2">
           {/* Your content goes here. It will scroll if it overflows */}
           <div className="h-full">
-            {/* Example content to demonstrate scrolling */}
+            <h2 className="text-2xl font-bold mb-6 text-center">
+              Available Units
+            </h2>
+            {availableUnits.length > 0 ? (
+              availableUnits.map((unit) => (
+                <Unit key={unit.unitType} unitData={unit} />
+              ))
+            ) : (
+              <p className="text-center text-gray-500">
+                No units available in barracks.
+              </p>
+            )}
           </div>
         </div>
       </div>

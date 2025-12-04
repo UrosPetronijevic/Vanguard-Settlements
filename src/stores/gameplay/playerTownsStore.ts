@@ -11,7 +11,7 @@ interface PlayerTownsState {
   setTowns: (newTowns: Town[]) => void;
   addTown: (town: Town) => void;
   removeTown: (townId: string) => void;
-  setActiveTown: (townId: any) => void;
+  setActiveTown: (town: Town | null) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
 }
@@ -35,7 +35,7 @@ export const usePlayerTownsStore = create<PlayerTownsState>((set) => ({
       towns: state.towns.filter((town) => town.id !== townId),
     })),
 
-  setActiveTown: (townId) => set({ activeTown: townId }),
+  setActiveTown: (town) => set({ activeTown: town }),
 
   setLoading: (loading) => set({ isLoading: loading }),
 

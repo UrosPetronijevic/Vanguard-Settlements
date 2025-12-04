@@ -84,7 +84,7 @@ export default function generateResources(townType: string) {
         },
 
         metal: {
-          amount: 0,
+          amount: 30,
           perHour: 0,
           percentAdd: 0,
           percentSub: 0,

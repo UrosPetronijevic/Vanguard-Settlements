@@ -5,7 +5,7 @@ import TradeResourceSelect from "./TradeResourceSelect";
 import TradePercentSlider from "./TradePercentSlider";
 import calculateTownPercent from "../../utils/calculateTownPercent";
 import type { ResourceName, Town } from "../../types/townTypes";
-import updateTowns from "../../utils/server/updateTowns";
+import updateTownData from "../../utils/server/updateTownData";
 
 export default function TradeActionsPopup() {
   const {
@@ -72,21 +72,24 @@ export default function TradeActionsPopup() {
       console.log(updatedActiveTown, "UPDATED TOWN");
       console.log(updatedTradeReceiver, "UPDATED RECEIVER TOWN");
 
-      await updateTowns(
+      await updateTownData(
         updatedActiveTown.id,
         updatedActiveTown.tradeStation,
-        updatedActiveTown.resources
+        updatedActiveTown.resources,
+        updatedActiveTown.barracks
       );
-      await updateTowns(
+      await updateTownData(
         updatedTradeReceiver.id,
         updatedTradeReceiver.tradeStation,
-        updatedTradeReceiver.resources
+        updatedTradeReceiver.resources,
+        updatedActiveTown.barracks
       );
       if (updatedOldReceiverTown) {
-        await updateTowns(
+        await updateTownData(
           updatedOldReceiverTown.id,
           updatedOldReceiverTown.tradeStation,
-          updatedOldReceiverTown.resources
+          updatedOldReceiverTown.resources,
+          updatedActiveTown.barracks
         );
       }
 

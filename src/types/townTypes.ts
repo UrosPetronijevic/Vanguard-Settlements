@@ -30,6 +30,13 @@ export type ProductionBuilding = {
 
 export type UnitName = "swordman" | "spearman" | "horseman"; // Add all your unit types here  | "archer" | "knight" | "wizard" | "barbarian"
 
+export type UnitCost = {
+  wood: number;
+  metal: number;
+  foodConsumption: number;
+  waterConsumption: number;
+};
+
 export type Stats = {
   attack: number;
   defense: number;
@@ -41,6 +48,7 @@ export type Unit = {
   unitType: UnitName; // Storing the name here is redundant if it's the key, but can be useful for type consistency
   amount: number;
   stats: Stats;
+  cost: UnitCost;
 };
 
 export type Army = Partial<Record<UnitName, Unit>>; // Allows for an army to not have all unit types initially

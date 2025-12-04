@@ -1,7 +1,7 @@
 import { usePlayerTownsStore } from "../../stores/gameplay/playerTownsStore";
 import { useTradeRoutPopupStore } from "../../stores/tradeRoutPopupStore";
 import deleteTradeRout from "../../utils/deleteTradeRout";
-import updateTowns from "../../utils/server/updateTowns";
+import updateTowns from "../../utils/server/updateTownData";
 
 type TradeRoutProps = {
   index: number;

@@ -25,7 +25,7 @@ export default function ArmyDisplay() {
             <span>spearman logo</span>
           </li>
         ) : (
-          <li>YOUR AMY IS DJIRO</li>
+          ""
         )}
 
         {activeTown?.barracks.army.horseman.amount > 0 ? (

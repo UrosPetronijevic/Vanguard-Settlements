@@ -4,7 +4,7 @@ const navItems = [
   { name: "Towns", id: "towns" },
   { name: "Map", id: "map" },
   { name: "Trade", id: "trade" },
-  { name: "Troops", id: "troops" },
+  { name: "Army", id: "troops" },
   { name: "Reports", id: "reports" },
 ];
 
